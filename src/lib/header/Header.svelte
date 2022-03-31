@@ -7,6 +7,20 @@
 	<div class="banner"></div>
 	<img class="logo" src={logo} alt="kickbox logo"/>
 	<img class="kickbox" src={kickbox} alt="large text that says kickbox"/>
+	<div class="columns">
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column"></div>
+	</div>
 <!--	<nav>-->
 <!--		<svg viewBox="0 0 2 3" aria-hidden="true">-->
 <!--			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />-->
@@ -35,6 +49,9 @@
 		position: relative;
 		display: flex;
 		justify-content: space-between;
+		z-index: -1000;
+		height: 100vh;
+		width: 100vw;
 	}
 	.banner {
 		position: absolute;
@@ -49,15 +66,34 @@
 		position: absolute;
 		left: calc(2 * var(--column-width) + var(--margin) + 2 * var(--gutter));
 		top: var(--margin);
-		width: calc(10 * var(--column-width));
+		width: calc(10 * var(--column-width) + 9 * var(--gutter));
 	}
 
 	.logo {
 		position: absolute;
 		left: calc(var(--margin) + var(--gutter));
 		top: var(--margin);
-		width: calc(2 * var(--column-width) - var(--margin) - var(--gutter));
+		width: calc((2 * var(--column-width)) - var(--margin) - var(--gutter));
 
+		/*width: calc(0.59 * (2 * var(--column-width) + var(--margin) + var(--gutter)));*/
+	}
+
+	.columns {
+		display: none;
+		/*display: flex;*/
+		position: absolute;
+		top:0;
+		left: 0;
+		flex-direction: row;
+		height: 100vh;
+		width: 100vw;
+		gap: var(--gutter);
+		margin: 0 var(--margin);
+	}
+
+	.column {
+		background: rgba(255,0,0,.2);
+		width: var(--column-width);
 	}
 
 	nav {

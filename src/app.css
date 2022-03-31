@@ -6,26 +6,43 @@
   --font-mono: "Fira Mono", monospace;
   --pure-white: #ffffff;
   --primary-color: #627b77;
+  --primary-color-muted: #7f9995;
   --secondary-color: #fcbf49;
   --tertiary-color: #f77f00;
   --accent-color: #d62828;
   --background-color: #eae2b7;
+  --background-color-80: rgba(234, 226, 183, 0.8);
   --heading-color: rgba(0, 0, 0, 0.7);
   --text-color: #444444;
   --background-without-opacity: rgba(255, 255, 255, 0.7);
   --column-margin-top: 4rem;
-  --margin: 40px;
-  --gutter: 20px;
-  --gap: 10px;
+  --margin: 2.3vw;
+  --gutter: calc(var(--margin) / 2);
+  --gap: calc(var(--gutter) / 2);
   --column-width: calc(
-    (100% - (2 * var(--margin)) - (11 * var(--gutter))) / 12
+    (100vw - (2 * var(--margin)) - (11 * var(--gutter))) / 12
   );
+  --app-left: calc(var(--margin) + var(--column-width) + var(--gutter));
+  --app-top: calc(var(--margin) + (2 * var(--column-width)) - var(--gutter));
+  --shadow-color: 53deg 27% 62%;
+  --shadow-elevation-low: 0.3px 0.3px 0.5px hsl(var(--shadow-color) / 0.32),
+    0.9px 1px 1.5px -2.5px hsl(var(--shadow-color) / 0.32);
+  --shadow-elevation-medium: 0.3px 0.3px 0.5px hsl(var(--shadow-color) / 0.45),
+    4.3px 5px 7.4px -2.5px hsl(var(--shadow-color) / 0.45);
+  --shadow-elevation-high: 0.3px 0.3px 0.5px hsl(var(--shadow-color) / 0.56),
+    3.9px 4.5px 6.7px -1.2px hsl(var(--shadow-color) / 0.56),
+    16.7px 19.3px 28.7px -2.5px hsl(var(--shadow-color) / 0.56);
 }
 
 body {
   min-height: 100vh;
   margin: 0;
   background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /*body::before {*/
@@ -54,7 +71,7 @@ h1,
 h2,
 p {
   font-weight: 400;
-  color: var(--heading-color);
+  color: var(--primary-color);
 }
 
 p {

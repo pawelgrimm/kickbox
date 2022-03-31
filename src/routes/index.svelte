@@ -4,12 +4,14 @@
 
 <script>
 	// import Counter from '$lib/Counter.svelte';
+	import App from "$lib/App.svelte";
 </script>
 
 <svelte:head>
 	<title>Kickbox</title>
 </svelte:head>
 
+<App />
 <!--<section>-->
 <!--	<h1>-->
 <!--		<div class="welcome">-->
