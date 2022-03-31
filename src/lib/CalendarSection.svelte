@@ -66,8 +66,8 @@
 
     .calendar {
         display: grid;
-        grid-template-columns: 50px repeat(5, 1fr);
-        grid-template-rows: repeat(9, 1fr);
+        grid-template-columns: 50px repeat(5, minmax(0, 1fr));
+        grid-template-rows: repeat(9, minmax(0, 1fr));
         height: 100%;
         column-gap: var(--gap);
         grid-template-areas:
