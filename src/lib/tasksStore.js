@@ -1,16 +1,16 @@
 import { TodoistApi } from "@doist/todoist-api-typescript";
 import { writable } from "svelte/store";
 
-async function createTaskStore() {
+function createTaskStore() {
   const apiKey = window.prompt("Enter a Todoist API key");
-  let tasks = [];
+  const { subscribe, set } = writable([]);
   try {
-    tasks = await getTasks(apiKey);
+    getTasks(apiKey).then((tasks) => {
+      set(tasks);
+    });
   } catch (e) {
     window.alert("Something went wrong!" + e.toString());
   }
-
-  const { subscribe } = writable(tasks);
 
   return { subscribe };
 }
@@ -25,4 +25,4 @@ async function getTasks(apiKey) {
   }));
 }
 
-export const tasks = await createTaskStore();
+export const tasks = createTaskStore();

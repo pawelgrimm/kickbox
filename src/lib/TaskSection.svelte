@@ -3,7 +3,8 @@
     import TaskCard from "$lib/TaskCard.svelte";
     import {tasks} from "$lib/tasksStore.js";
 
-    let items = $tasks
+    let items = [];
+    $: items = $tasks;
 
     function handleDndConsider(e) {
         items = e.detail.items;
@@ -19,9 +20,11 @@
          on:finalize="{handleDndFinalize}"
          class="taskSection"
 >
+    {#if items != null && items?.length > 0}
     {#each items as item(item.id)}
         <TaskCard {...item}/>
     {/each}
+    {/if}
 </section>
 
 <style>
