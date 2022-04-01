@@ -26,6 +26,8 @@
 
 <style>
     .taskSection {
+        overflow-y: auto;
+        overflow-x: hidden;
         width: calc(3 * var(--column-width));
         background: var(--background-color-80);
         box-shadow: var(--shadow-elevation-medium);

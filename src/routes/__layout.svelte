@@ -23,6 +23,9 @@
 		max-width: 1024px;
 		margin: 0 auto;
 		box-sizing: border-box;
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
 
 	footer {

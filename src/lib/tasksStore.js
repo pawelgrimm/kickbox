@@ -10,7 +10,7 @@ async function createTaskStore() {
     window.alert("Something went wrong!" + e.toString());
   }
 
-  const { subscribe, set, update } = writable(tasks);
+  const { subscribe } = writable(tasks);
 
   return { subscribe };
 }
@@ -18,15 +18,11 @@ async function createTaskStore() {
 async function getTasks(apiKey) {
   const api = new TodoistApi(apiKey);
 
-  return await api.getTasks().then((tasks) =>
-    tasks
-      .filter((t) => t.labels.includes("kickbox"))
-      .map((t) => ({
-        id: t.id,
-        title: t.content,
-        description: t.description,
-      }))
-  );
+  return (await api.getTasks()).map((t) => ({
+    id: t.id,
+    title: t.content,
+    description: t.description,
+  }));
 }
 
 export const tasks = await createTaskStore();
