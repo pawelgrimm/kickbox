@@ -2,9 +2,15 @@
     import {dndzone} from "svelte-dnd-action";
     import TaskCard from "$lib/TaskCard.svelte";
     import {tasks} from "$lib/tasksStore.js";
+    import {onMount} from "svelte";
 
     let items = [];
     $: items = $tasks;
+
+    onMount(() => {
+        const apiKey = window.prompt("Enter a Todoist API key");
+        tasks.fetch(apiKey);
+    })
 
     function handleDndConsider(e) {
         items = e.detail.items;
