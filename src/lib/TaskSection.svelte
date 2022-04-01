@@ -1,22 +1,9 @@
 <script>
     import {dndzone} from "svelte-dnd-action";
     import TaskCard from "$lib/TaskCard.svelte";
+    import {tasks} from "$lib/tasksStore.js";
 
-    let items = [
-        {
-            id: "task1",
-            title: "tumeric tattooed bicycle",
-        },
-        {
-            id: "task2",
-            title: "hexagon quinoa waistcoat",
-            description: "iceland fashion axe williamsburg shaman brunch four dollar toast. Chia sriracha whateve"
-        },
-        {
-            id: "task3",
-            title: "hot chicken chillwave gochujang"
-        }
-    ]
+    let items = $tasks
 
     function handleDndConsider(e) {
         items = e.detail.items;
